@@ -20,6 +20,10 @@ function App() {
     setDraft("");
   }
 
+  function removeTodo(id) {
+    setTodo(todo.filter((t) => t.id !== id));
+  }
+
   return (
     <main className="app">
       <h1>To Do List</h1>
@@ -37,6 +41,7 @@ function App() {
         {todo.map((t) => (
           <li key={t.id}>
             {t.text}{" "}
+            <button type="button" onClick={() => removeTodo(t.id)}>Remove</button>
           </li>
         ))}
       </ul>
