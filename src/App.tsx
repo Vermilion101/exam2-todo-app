@@ -24,6 +24,12 @@ function App() {
     setTodo(todo.filter((t) => t.id !== id));
   }
 
+  function toggleDone(id) {
+    setTodo(todo.map(
+      (t) => t.id === id ? {...t, done: !t.done } : t
+    ));
+  }
+
   return (
     <main className="app">
       <h1>To Do List</h1>
@@ -39,8 +45,9 @@ function App() {
 
       <ul className="todo-list">
         {todo.map((t) => (
-          <li key={t.id}>
-            {t.text}{" "}
+          <li className={t.done ? "todo done" : "todo"} key={t.id}>
+            <button type="button" onClick={() => toggleDone(t.id)}>Done</button>
+            {" "}{t.text}{" "}
             <button type="button" onClick={() => removeTodo(t.id)}>Remove</button>
           </li>
         ))}
