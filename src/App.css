@@ -5,13 +5,44 @@
     background-color: antiquewhite;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    border: 1px solid rgb(248, 222, 186);
+    border: 1px solid rgb(255, 250, 244);
+    box-shadow: 3px 4px 3px grey;
+}
+
+.pin {
+    margin: auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: red;
+    border-radius: 100%;
+    box-shadow:
+    rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -40px 20px 0px inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px,
+    0px -1px 15px -8px rgba(0, 0, 0, 0.09);
 }
 
 .input-row {
     display: flex;
     gap: 0.5rem;
     margin-bottom: 0;
+}
+
+.button {
+    border-radius: 5px;
+    color: white;
+    box-shadow: 2px 1px 3px rgb(182, 157, 123);
+}
+
+.input-row button {
+    background-color: yellow;
+    border: 1px solid #f7ffa0;
+    color: black
 }
 
 .todo-list {
@@ -24,8 +55,23 @@
     border-bottom: 1px solid #4d4e4e;
 }
 
+.remove-button {
+    background-color: rgb(255, 0, 0);
+    border: 1px solid #ffa0a0;
+    border-radius: 5px;
+    color: white
+}
+
+.done-button {
+    background-color: rgb(4, 235, 15);
+    border: 1px solid #55ff69;
+    border-radius: 5px;
+    color: white
+}
+
 .done {
     text-decoration: line-through;
     opacity: 0.75;
     background: #a0ffc8;
 }
+

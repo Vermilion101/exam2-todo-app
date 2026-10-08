@@ -1,75 +1,12 @@
-# React + TypeScript + Vite
+Appen lagrar uppgifter i useStates som i det här fallet är objekt och kan uppdateras när "addTodo" functionen anropas. Alla nya "tasks" är inte genomförda till att börja med och genom att klicka på "done" kanppen vid en uppgift så anropas "toggleDone" functionen vilket göra att done blir true i objectet. Alla tasks visas för användaren med an map som updaterar gränsnittet dynamiskt oavsett hur många tasks man lägger till.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+För att uppdatera gränsnittet med reacts usestate så måste man göra en ny array med den angivna uppdaterings funtionen, push lägger bara till värden till den existerande functionen vilket react inte reagerar på.
 
-Currently, two official plugins are available:
+I koden nedan så försöker man att lägga till en todo genom push och man förväntar sig att sidan ska uppdatera sig automatiskt. Problemet är som sagt att react inte reagerar på deta och uppfattar inte att en ändrag har skett eftersom den förväntar sig att få en NY updaterad array. För att fixa det problemet så deklarerar vi en function direkt i usestate ("const [todo, setTodo] = ...", där "setTodo" är functionen) och gör en ny todos array som react uppdaterar med.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+function addTodo(todos, text) {
+  todos.push(text);
+  return todos;
+}
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+När jag fastnade använde jag gammla uppgifter som jag hade gjort som inpiration och när jag inte förstog varför vissa saker fuingerade som de gjorde så googlade jag.

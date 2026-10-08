@@ -32,6 +32,7 @@ function App() {
 
   return (
     <main className="app">
+      <div className="pin"></div>
       <h1>To Do List</h1>
 
       <form className="input-row" onSubmit={addTodo}>
@@ -40,15 +41,15 @@ function App() {
         onChange={(e) => setDraft(e.target.value)}
         placeholder="Add new task">
         </input>
-        <button type="submit">Add</button>
+        <button className="button" type="submit">Add</button>
       </form>
 
       <ul className="todo-list">
         {todo.map((t) => (
           <li className={t.done ? "todo done" : "todo"} key={t.id}>
-            <button type="button" onClick={() => toggleDone(t.id)}>Done</button>
+            <button className="button done-button" type="button" onClick={() => toggleDone(t.id)}>Done</button>
             {" "}{t.text}{" "}
-            <button type="button" onClick={() => removeTodo(t.id)}>Remove</button>
+            <button className="button remove-button" type="button" onClick={() => removeTodo(t.id)}>Remove</button>
           </li>
         ))}
       </ul>
