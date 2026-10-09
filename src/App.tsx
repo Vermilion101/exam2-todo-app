@@ -5,7 +5,7 @@ function App() {
   const [todo, setTodo] = useState([
     {id:1, text: "todo 1", done: false},
     {id:2, text: "todo 2", done: false},
-    {id:3, text: "tofo 3", done: false}
+    {id:3, text: "todo 3", done: false}
   ]);
   const [draft, setDraft] = useState("");
 
@@ -47,7 +47,7 @@ function App() {
       <ul className="todo-list">
         {todo.map((t) => (
           <li className={t.done ? "todo done" : "todo"} key={t.id}>
-            <button className="button done-button" type="button" onClick={() => toggleDone(t.id)}>Done</button>
+            <button className="button done-button" type="button" onClick={() => toggleDone(t.id)}>{t.done ? "Undo" : "Done"}</button>
             {" "}{t.text}{" "}
             <button className="button remove-button" type="button" onClick={() => removeTodo(t.id)}>Remove</button>
           </li>
