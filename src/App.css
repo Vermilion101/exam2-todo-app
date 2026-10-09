@@ -27,6 +27,18 @@
     0px -1px 15px -8px rgba(0, 0, 0, 0.09);
 }
 
+.highlight {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    background-color: white;
+    filter: blur(4px);
+
+}
+
 .input-row {
     display: flex;
     gap: 0.5rem;

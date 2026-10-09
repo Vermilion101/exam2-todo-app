@@ -32,7 +32,7 @@ function App() {
 
   return (
     <main className="app">
-      <div className="pin"></div>
+      <div className="pin"><div className="highlight"></div></div>
       <h1>To Do List</h1>
 
       <form className="input-row" onSubmit={addTodo}>
